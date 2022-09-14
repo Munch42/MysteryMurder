@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
@@ -39,6 +40,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         if(scene.buildIndex == 1) // We are in the game scene since it has the index of 1.
         {
             // To spawn a prefab on all clients you reference the prefab with a string instead of then ormal object like unity.
+            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerManager"), Vector3.zero, Quaternion.identity);
         }
     }
 
