@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
+using TMPro;
+
+public class RoomListItem : MonoBehaviour
+{
+    [SerializeField]
+    TMP_Text text;
+
+    public RoomInfo info;
+
+    public void Setup(RoomInfo _info)
+    {
+        info = _info;
+        text.text = _info.Name;
+    }
+
+    public void OnClick()
+    {
+        // We tell the game that we want to join the room of this button when we press it.
+        Launcher.Instance.JoinRoom(info);
+    }
+}
